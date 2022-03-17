@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class Task1 extends AppCompatActivity {
     private Button btn;
-    private TextView textView2;
+    private TextView textView2, textView3;
     private EditText field1;
-    private final ArrayList<String> strings = new ArrayList<> ();
+    private final ArrayList<String> strings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,45 +23,47 @@ public class Task1 extends AppCompatActivity {
         addListenerOnButton();
     }
 
+    @SuppressLint("SetTextI18n")
     private void addListenerOnButton() {
         btn = (Button) findViewById(R.id.task1button);
         field1 = (EditText) findViewById(R.id.editTextTextMultiLine);
         textView2 = (TextView) findViewById(R.id.textView2);
-//        field3 = (EditText) findViewById(R.id.editTextTextThirdNum);
-//        textView5 = (TextView) findViewById(R.id.textView5);
+        textView3 = (TextView) findViewById(R.id.textView3);
+        textView2.setText("Напишите строку #1");
         btn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 String s = String.valueOf(field1.getText());
-                addToArray(s);
+                if (strings.size() < 4) {
+                    textView2.setText("Напишите строку #" + (strings.size() + 2));
+                    strings.add(s);
+                } else {
+                    strings.add(s);
+                    textView3.setText(strings.toString());
+                    String longest = strings.get(0);
+                    String res = "";
+                    for (String string : strings) {
+                        if (longest.length() <= string.length()) {
+                            longest = string;
+                        }
+                    }
+                    int count = 0;
+                    for (String string : strings) {
+                        if (longest.length() == string.length()) {
+                            System.out.println(string);
+                            if (count > 0)
+                                res += "\n";
+                            res += string;
+                            count++;
+                        }
+                    }
+                    textView3.setText(res.toString());
+                    strings.clear();
+                    textView2.setText("Выведен ответ!\nМожете записать новую комбинацию!");
+                }
                 field1.setText("");
-                textView2.setText(strings.toString());
-
             }
-//                double firstNum = Double.parseDouble(field1.getText().toString());
-//                double secondNum = Double.parseDouble(field2.getText().toString());
-//                double thirdNum = Double.parseDouble(field3.getText().toString());
-//                double[] numbersf = new double[]{firstNum, secondNum, thirdNum};
-//                Arrays.sort(numbersf);
-//                textView5.setText(Double.toString(numbersf[1]));
-//                textView5.setTextColor(Color.rgb(0, 160, 0));
-//                textView5.setTextSize(25);
-
-//                int length = Integer.parseInt(num1.getText().toString());
-//                int width = Integer.parseInt(num2.getText().toString());
-//                int height = Integer.parseInt(num3.getText().toString());
-//                Cuboid cub = new Cuboid(length, width, height);
-//                view1.setText(Double.toString(cub.getVolume()));
-
-//            }
         });
-    }
-    private void addToArray(String s){
-        if (strings.size()<5){
-            strings.add(s);
-        }else
-            strings.clear();
-
     }
 }
