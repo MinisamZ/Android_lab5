@@ -23,21 +23,21 @@ public class MainActivity extends AppCompatActivity {
         buttonT1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.example.myapplication.Task1");
+                Intent intent = new Intent("com.example.android_lab5.Task1");
                 startActivity(intent);
             }
         });
         buttonT2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.example.myapplication.Task2");
+                Intent intent = new Intent("com.example.android_lab5.Task2");
                 startActivity(intent);
             }
         });
         buttonT3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent("com.example.myapplication.Task3");
+                Intent intent = new Intent("com.example.android_lab5.Task3");
                 startActivity(intent);
             }
         });
