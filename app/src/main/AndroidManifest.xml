@@ -12,7 +12,7 @@
         <activity
                 android:name=".Task3"
                 android:exported="true"
-                android:label="Task3">
+                android:label="Task 3">
             <intent-filter>
                 <action android:name="com.example.android_lab5.Task3"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -20,7 +20,8 @@
         </activity>
         <activity
                 android:name=".Task2"
-                android:exported="true">
+                android:exported="true"
+                android:label="Task 2">
             <intent-filter>
                 <action android:name="com.example.android_lab5.Task2"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -29,7 +30,7 @@
         <activity
                 android:name=".Task1"
                 android:exported="true"
-                android:label="Task1">
+                android:label="Task 1">
             <intent-filter>
                 <action android:name="com.example.android_lab5.Task1"/>
                 <category android:name="android.intent.category.DEFAULT"/>
